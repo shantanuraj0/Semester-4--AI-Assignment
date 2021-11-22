@@ -1,0 +1,123 @@
+
+
+question 1)
+
+
+
+		OL: OPEN LIST
+		CL: CLOSE LIST
+
+BFS:
+
+	a)	
+		OL = {S(0)}                       		CL = {}
+		OL = {D(10) ,A(1)}				CL = {S(0)}
+		OL = {A(1),F(15),c(11)}				CL = {S(0),D(10)}
+		OL = {F(15),C(11),B(21),E(16)}			CL = {S(0),D(10),A(1)}
+		OL = {C(11),B(21),E(16),G(18)}			CL = {S(0),D(10),A(1),F(15)}
+								CL ={S(0), D(10), A(1), F(15)}
+	
+	While expanding the node F, goal node G is generated and hence search terminates .
+	
+
+	b)
+	
+		Number of nodes generated : 8
+       		Number of nodes expanded  : 4
+	c)	
+		PATH : S->D->F->G
+		Path cost : 18
+
+
+
+
+DFS:
+
+	a)
+
+		OL = {S(0)}				CL = {}
+		OL = {A(1),D(10)}			CL = {S(0)}
+		OL = {E(16),B(21),D(10)}     		CL = {S(0),A(1)}
+		OL = {G(19),B(21),D(10)}		CL = {S(0),A(1),E(16)}
+							CL = {S(0), A(1), E(16)}
+
+	While expanding the node E, goal node G is generated and hence search terminates.
+	
+	b)
+	
+		Number of nodes generated : 6
+       		Number of nodes expanded  : 3
+	c)	
+		PATH : S->A->E->G
+		Path cost : 19    		
+
+
+
+
+ITERATIVE DEEPENING:
+
+	
+ 
+For k = 0  
+   		OL ={S(0)}                     	   CL= {}
+  		OL ={} 				   CL= {S(0)}
+
+For k = 1				 
+  		OL ={S(0)}    			   CL= {}
+   		OL ={A(1), D(10)}                  CL= {S(0)}
+   		OL ={D(10)}                        CL= {S(0), A(1)}
+		OL ={}                             CL= {S(0), A(1), D(10)}
+
+For k = 2
+   		OL ={S(0)}                     	   CL= {}
+  		OL ={A(1), D(10)}                  CL= {S(0)}
+   		OL ={E(16), B(21), D(10)}	   CL= {S(0), A(1)}
+   		OL ={B(21), D(10)}                 CL= {S(0), A(1), E(16)}
+   		OL ={D(10)}  			   CL= {S(0), A(1), E(16), B(21)}
+   		OL ={C(11), F(15)}		   CL= {S(0), A(1), E(16), B(21), D(10)}
+   		OL ={F(15)}                        CL= {S(0), A(1), E(16), B(21), D(10), C(11)}
+   		OL ={}                             CL= {S(0), A(1), E(16), B(21), D(10), C(11), F(15)}
+
+
+For k = 3
+   		OL ={S(0)}                     	   CL= {}
+   		OL ={A(1), D(10)}                  CL= {S(0)}
+   		OL ={E(16), B(21), D(10)}	   CL= {S(0), A(1)}
+   		OL ={G(19), B(21), D(10)}	   CL= {S(0), A(1), E(16)}
+
+	While expanding E, goal node G is generated therefore the search terminates.
+
+
+b)
+	
+		Number of nodes generated : 17
+       		Number of nodes expanded  : 14
+c)	
+		PATH : S->A->E->G
+		Path cost : 19    		
+
+
+
+
+
+
+
+UNIFORM COST SEARCH:
+
+
+a) 	  
+   	    OL=	{S(0)}                        		CL= {}
+  	    OL=	{A(1), D(10)}                  		CL= {S(0)}
+   	    OL=	{D(10), E(16), B(21)}                   CL= {S(0), A(1)}
+   	    OL=	{C(11), F(15), E(16), B(21)}            CL= {S(0), A(1), D(10)}
+   	    OL	{G(13), F(13), E(16), B(21)}            CL= {S(0), A(1), D(10), C(11)}
+
+
+b)
+	
+		Number of nodes generated : 8
+       		Number of nodes expanded  : 5
+
+c)	
+		PATH : S->D->C->G
+		Path cost : 13  
